@@ -1,0 +1,9 @@
+{
+  "name": "shared",
+  "version": "1.0.0",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "mongoose": "^8.4.0",
+    "pino": "^9.2.0"
+  }
+}

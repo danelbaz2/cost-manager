@@ -62,3 +62,4 @@ Read `docs/PLAN.md` first for the full step-by-step build plan. Then:
 - `docs/DATA_MODEL.md`    — Mongoose schemas for each collection
 - `docs/COMPUTED_PATTERN.md` — how the monthly report is cached
 - `docs/DEPLOYMENT.md`    — deploy targets and `.env` contract
+- `docs/REQUIREMENTS_CHECKLIST.md` — every spec/Q&A item mapped to where it's covered
