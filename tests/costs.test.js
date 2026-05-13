@@ -11,7 +11,7 @@ const app  = require('../services/costs/index');
 const User = require('../shared/models/users');
 const Cost = require('../shared/models/costs');
 
-beforeAll(async () => { await startDb(); });
+beforeAll(async () => { await startDb(); }, 300000);
 afterAll(async () => { await stopDb(); });
 beforeEach(async () => { await clearDb(); });
 

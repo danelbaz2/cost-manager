@@ -10,7 +10,7 @@ process.env.TEAM_MEMBERS = '[]';
 const app = require('../services/logs/index');
 const Log = require('../shared/models/logs');
 
-beforeAll(async () => { await startDb(); });
+beforeAll(async () => { await startDb(); }, 300000);
 afterAll(async () => { await stopDb(); });
 beforeEach(async () => { await clearDb(); });
 
