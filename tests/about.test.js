@@ -7,6 +7,7 @@ const request = require('supertest');
 process.env.TEAM_MEMBERS = JSON.stringify([
   { first_name: 'Dan', last_name: 'Elbaz' },
   { first_name: 'Shahaf', last_name: 'Attias' },
+  { first_name: 'Masanbat', last_name: 'Mulu' },
 ]);
 // Provide a dummy MONGO_URI so env.js does not throw
 process.env.MONGO_URI = 'mongodb://localhost/test';
@@ -19,7 +20,7 @@ describe('GET /api/about', () => {
     const res = await request(app).get('/api/about');
     expect(res.status).toBe(200);
     expect(Array.isArray(res.body)).toBe(true);
-    expect(res.body.length).toBe(2);
+    expect(res.body.length).toBe(3);
 
     // Each member must have exactly first_name and last_name
     for (const member of res.body) {
@@ -43,5 +44,7 @@ describe('GET /api/about', () => {
     expect(res.body[0].last_name).toBe('Elbaz');
     expect(res.body[1].first_name).toBe('Shahaf');
     expect(res.body[1].last_name).toBe('Attias');
+    expect(res.body[2].first_name).toBe('Masanbat');
+    expect(res.body[2].last_name).toBe('Mulu');
   });
 });

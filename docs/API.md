@@ -113,8 +113,9 @@ Hardcoded / read from `.env`. **No DB call.**
 
 ```json
 [
-  { "first_name": "Dan",   "last_name": "Elbaz" },
-  { "first_name": "Alice", "last_name": "Cohen" }
+  { "first_name": "Dan",      "last_name": "Elbaz" },
+  { "first_name": "Shahaf",   "last_name": "Attias" },
+  { "first_name": "Masanbat", "last_name": "Mulu" }
 ]
 ```
 
