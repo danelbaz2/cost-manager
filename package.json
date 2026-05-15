@@ -16,6 +16,7 @@
     "dev:logs":  "node services/logs/index.js",
     "dev:about": "node services/about/index.js",
     "start": "concurrently -n users,costs,logs,about -c blue,green,yellow,magenta \"npm:dev:users\" \"npm:dev:costs\" \"npm:dev:logs\" \"npm:dev:about\"",
+    "build": "npm install",
     "test": "jest --runInBand",
     "seed": "node scripts/seed.js"
   },
