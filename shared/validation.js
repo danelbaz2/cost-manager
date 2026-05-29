@@ -26,17 +26,6 @@ const validateAddUser = (body) => {
   if (!birthday) {
     return { ok: false, id: 'validation_error', message: 'birthday is required' };
   }
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(birthday)) {
-    return { ok: false, id: 'validation_error', message: 'birthday must be in YYYY-MM-DD format' };
-  }
-  // and it has to be a real date that already happened
-  const birthdayDate = new Date(birthday);
-  if (isNaN(birthdayDate.getTime())) {
-    return { ok: false, id: 'validation_error', message: 'birthday must be a valid date' };
-  }
-  if (birthdayDate.getTime() >= Date.now()) {
-    return { ok: false, id: 'validation_error', message: 'birthday must be in the past' };
-  }
   return { ok: true };
 };
 
