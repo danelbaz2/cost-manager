@@ -22,9 +22,17 @@ const validateAddUser = (body) => {
   if (!last_name || typeof last_name !== 'string' || !last_name.trim()) {
     return { ok: false, id: 'validation_error', message: 'last_name is required' };
   }
-  // birthday is required and has to be written as YYYY-MM-DD
+  // birthday is required and has to be a parseable date
   if (!birthday) {
     return { ok: false, id: 'validation_error', message: 'birthday is required' };
+  }
+  const parsedBirthday = new Date(birthday);
+  if (isNaN(parsedBirthday.getTime())) {
+    return { ok: false, id: 'validation_error', message: 'birthday must be a valid date' };
+  }
+  // a birthday can't be in the future
+  if (parsedBirthday.getTime() > Date.now()) {
+    return { ok: false, id: 'validation_error', message: 'birthday cannot be in the future' };
   }
   return { ok: true };
 };

@@ -25,7 +25,9 @@ const mongoTransport = {
       url:        entry.url,
       status:     entry.status,
       durationMs: entry.durationMs,
-      meta:       entry,
+      // only the endpoint-specific payload; the rest of the pino line is
+      // already mapped to the columns above
+      meta:       entry.meta || {},
     }).catch((err) => process.stderr.write(`Log write failed: ${err.message}\n`));
   },
 };

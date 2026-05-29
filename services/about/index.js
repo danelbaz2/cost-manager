@@ -2,6 +2,7 @@
 'use strict';
 
 const express = require('express');
+const { connect } = require('../../shared/db');
 const { httpLogger, logEndpoint } = require('../../shared/logger');
 const { PORT_ABOUT, TEAM_MEMBERS } = require('../../shared/env');
 
@@ -28,10 +29,13 @@ app.use((err, req, res, _next) => {
   res.status(500).json({ id: 'internal_error', message: err.message });
 });
 
-// don't bind a port while tests are requiring this file
+// connect to mongo (so logs get written) and start listening;
+// skipped when this file is required from a test
 if (require.main === module) {
-  app.listen(PORT_ABOUT, () => {
-    console.log(`about service running on port ${PORT_ABOUT}`);
+  connect().then(() => {
+    app.listen(PORT_ABOUT, () => {
+      console.log(`about service running on port ${PORT_ABOUT}`);
+    });
   });
 }
 
